@@ -53,6 +53,7 @@ class Particle {
   }
 
   void move() {
+      myAngle += (float)(Math.random() * 0.4-0.2);
       myX += Math.cos(myAngle) * mySpeed;
       myY += Math.sin(myAngle) * mySpeed;
     if (myX > 950 || myY > 950 || myX < -950 || myY < -950) {
