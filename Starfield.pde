@@ -34,22 +34,8 @@ class Particle {
   }
 
   void show() {
-    if(myWidth >70 && myHeight > 70){
-      fill(myColor, myOpacity);
-      ellipse(myX-25, myY-25, myWidth-50 , myHeight-50);
-      ellipse(myX+25, myY-25, myWidth-50 , myHeight-50);
-      fill(0);
-      ellipse(myX-25, myY-25, myWidth-60 , myHeight-60);
-      ellipse(myX+25, myY-25, myWidth-60 , myHeight-60);
-    }
-    if(myWidth >70 && myHeight > 70){
-    fill(color(50, 205, 50), myOpacity);
-    ellipse((float)myX, (float)myY, (float)myWidth, (float)myHeight);
-    }
-    else{
       fill(myColor, myOpacity);
       ellipse((float)myX, (float)myY, (float)myWidth, (float)myHeight);
-    }
   }
 
   void move() {
@@ -69,8 +55,23 @@ class OddballParticle extends Particle {
     myY = 500;
     myWidth = 80;
     myHeight = 80;
-    mySpeed = 10.0;
+    mySpeed = 2.5;
     myColor = 80;
     myAngle = (float)(Math.random() * (2 * Math.PI));
   }
+  void move(){
+    myX-=(Math.cos(myAngle)*mySpeed);
+    myAngle=myAngle+.01;
+    myY+=(Math.sin(myAngle)*mySpeed);
+  }
+  void show(){
+      fill(myColor, myOpacity);
+      ellipse(myX-25, myY-25, myWidth-50 , myHeight-50);
+      ellipse(myX+25, myY-25, myWidth-50 , myHeight-50);
+      fill(0);
+      ellipse(myX-25, myY-25, myWidth-60 , myHeight-60);
+      ellipse(myX+25, myY-25, myWidth-60 , myHeight-60);
+    fill(color(50, 205, 50), myOpacity);
+    ellipse((float)myX, (float)myY, (float)myWidth, (float)myHeight);
+}
 }
